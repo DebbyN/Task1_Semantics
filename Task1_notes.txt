@@ -1,0 +1,51 @@
+L3T12 Semantic Similarity(NLP)
+Task1 Check similarity between sentences using spaCy.
+
+1-Observations noted from the results for testing similarities between cat, monkey and banana:
+Observations:
+i-Cat and monkey are the most similar because they are both animals.
+ii-Monkey and banana have less similarities because one is an animal and the other a plant, but they do have something in common as monkeys eat bananas.
+iii-Cat and banana have the least similarities, as one is an animal and the other a plant, and cats do not eat bananas.
+
+2 -Working with Vectors.
+Nested for loops used to compare a number of words respectively with 
+each other, including themselves.
+
+2a -The results show complete similarity for items compared to themselves.
+i-Middling similarities when two animals or two fruit are compared.
+ii-Very little similarities when both the cat and monkey are are compared to apples because neither eats them.
+iii-More similarities between the monkey and the banana, than the cat and the banana, 
+because monkeys eat bananas.
+
+2b - My list.
+Observations:
+i-The words baby, human, woman, man, male and female, all gave surprisingly low similarity comparisons with each other and the other words, than the other words did with each other - words such as house, car, bicycle, dog and sheep.
+ii-The test for similarity in the system does not seem to handle these concepts well, compared more common nouns which the other words all were.
+iii-Some of them probably cause low scores because they may be classed more as adjectives than nouns.
+
+3 - Working with Sentences
+3a - The sentence, 'Why is my cat on the car', compared with four other sentences using 'en_core_web_md':
+Observations:
+i-The system found the highest level of similarity for the sentence that basic and about a car. The other sentence about a car was too ambigous to find the similarity with the noun.
+ii-The sentence that had two nouns in it, rather than being a question, was found more similar to the comparison sentence because it also had two nouns in it, the sentence phrased as a question was found less similar because it dealt with a noun and verb.
+iii-The two question sentences should have had the highest similarity levels because they are questions, wheras none of the sentnece had a subject line similar to the comparison sentnece.
+
+ 
+3b - Example code with similar themed sentences, complaints, compared to each other, and then to sentences from another theme, receipes.
+First run using the more advanced language that uses 'vectorisation' to check for similarities between sentences - 'en_core_web_md' module.
+3c - then run the example code using the simpler language module - 'en_core_web_sm'.
+
+Noted differences between running the two modules - points 3b and 3c:
+1 - when using the simpler module, the system gave a warning that this module cannot use word vectors as their are none loaded, hence the simpler interpretation.
+ Warning given:
+ UserWarning: [W007] The model you're using has no word vectors loaded, so the result of the Doc.similarity method will be based on the tagger, parser and NER, which may not give useful similarity judgements. This may happen if you're using one of the small models, e.g. `en_core_web_sm`, which don't ship with word vectors and only use context-sensitive tensors. You can always add your own word vectors, or use one of the larger models instead if available.
+
+2 - the simpler module found more similarities between the complaints and recipes
+when there were numerics in the sentence. 
+Not any appropriate similarities, but rather on similarity in type such as quantities and temperatures in the recipes, and monetary amounts in the complaints.
+
+3 - The simpler module found a lower level of similarity overall, compared to the more advanced language module.
+But in this particular context of recipe instructions, and varying complaints, the lower level of similarity between the sentences, even of the same group sentences, was actually more appropriate. i.e. they were only similar because they were complaints or recipe instructions, not because they were complaints for similar issues, or instructions from the same recipe.
+ 
+
+
